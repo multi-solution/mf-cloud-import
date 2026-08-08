@@ -70,7 +70,7 @@ Claude Code プラグインです。
 ### 1. プラグインを入れる
 
 ```
-/plugin marketplace add <このリポジトリのURL>
+/plugin marketplace add multi-solution/mf-cloud-import
 /plugin install mf-cloud-import
 ```
 
