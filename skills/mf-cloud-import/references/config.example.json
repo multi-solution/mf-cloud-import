@@ -1,0 +1,52 @@
+{
+  "_comment": "このファイルは記入例です。実際の設定は対象フォルダの .mf-cloud/config.json に置きます。/mf-setup が対話で生成します。事業者ごとに必ず別ファイルにしてください。",
+
+  "user_profile": "beginner",
+  "_user_profile_choices": "beginner（会計に不慣れ：専門用語を避けて説明する）/ expert（経理実務経験あり・税理士等：専門用語のまま簡潔に表示する）。★表示の切り替えのみ。判断ロジックと安全装置は共通",
+
+  "tax_review": "on",
+  "_tax_review_choices": "on（判断が分かれる項目で税務レビューを起動し、必要なら専門家への確認を促す）/ off（利用者自身が税務の専門家。事実提示のみで、確認の誘導はしない）。user_profile とは独立した設定",
+
+  "office_name": "（確認用。mfc_ca_currentOffice の name と一致するか毎回チェックする）",
+  "office_type": "INDIVIDUAL",
+  "_office_type_choices": "INDIVIDUAL（個人事業）/ CORPORATE（法人）。使える勘定科目が根本的に違う",
+
+  "tax_method": "two_percent_special",
+  "_tax_method_choices": "exempt（免税）/ two_percent_special（2割特例）/ simplified（簡易課税）/ standard（本則課税）。仕入側の税区分が納税額に効くかが変わる。2割特例には適用期限があるため、期限後の課税方式を必ず確認すること",
+
+  "receipt_credit_account": "事業主借",
+  "_receipt_credit_account_note": "明細のない領収書（立替経費）を仕訳するときの貸方。個人事業で事業用資金を分けていないなら『事業主借』、法人なら『未払金』『現金』など。科目名で書き、IDは実行時に解決する",
+
+  "meal_threshold": 10000,
+  "_meal_threshold_note": "その場で飲食するものが、この金額以下なら会議費、超なら接待交際費。手土産・贈答など『その場で飲食しないもの』は金額に関わらず接待交際費。境界額は事業者が決める",
+
+  "asset_threshold": 100000,
+  "_asset_threshold_note": "この金額以上の物品・ソフトは資産計上を検討する（自動確定せず要確認にする）",
+
+  "store_rules": [
+    {
+      "match": ["（店舗名や摘要に含まれる文字列）"],
+      "account": "（勘定科目名）",
+      "sub_account": "（補助科目名。無ければ省略）",
+      "tax": "課税仕入 10%",
+      "note": "/mf-setup が過去の仕訳から候補を生成します。件数の根拠を見て承認したものだけがここに入ります"
+    }
+  ],
+
+  "excluded_patterns": [
+    {
+      "match": ["（仕訳しない明細の内容パターン）"],
+      "reason": "（なぜ除外するのか。報告に必ず載せるため必須）"
+    }
+  ],
+  "_excluded_patterns_warning": "★最重要★ 除外ルールは事業者ごとに全く違います。同じ買い物をEC連携とカード連携の両方で取り込んでいる場合は片方を除外しないと二重計上になりますが、その連携をしていない事業者で同じ除外をすると経費が丸ごと計上漏れになります。必ず mfc_ca_getConnectedAccounts で実際の連携構成を確認してから設定し、他社の設定を流用しないこと",
+
+  "creds_path": "~/.mfc/credentials.json",
+  "_creds_path_note": "証憑添付用のREST認証ファイル。★複数の事業者を扱う場合は、事業者ごとに別ファイルにする（例: ~/.mfc/credentials_A社.json）。oauth_init.py / preflight.py / attach_voucher.py の --creds にこの値を渡す。MCP接続とREST認証が別事業者を向く取り違えを防ぐため、preflight の office_name と currentOffice の name の一致を毎回確認する",
+
+  "receivable_realization_mode": "screen",
+  "_receivable_realization_note": "売掛金の回収をどう処理するか。screen=MF画面の『実現』で消し込む（入金予定＝未実現仕訳を使っている場合は必ずこれ。APIで登録すると二重計上になる）／ api=MFクラウド請求書で『入金予定を作らない』設定にしている等、未実現仕訳の運用が無い事業者。APIで売掛金回収を起票してよい。★どちらのモードでも、記帳のたびの getJournals(is_realized:false) チェックは省略しない（後から運用を変えた場合の二重計上防止）。判定は自動チェックだけに頼らず、請求書サービスの設定を本人に確認する（たまたま未回収ゼロの瞬間だと誤判定するため）",
+
+  "voucher_max_bytes": 5242880,
+  "_voucher_max_bytes_note": "これを超える証憑はアップロードせず、画面での手動添付を案内する（Base64で約1.3倍に膨らむため）"
+}
