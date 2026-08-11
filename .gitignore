@@ -17,3 +17,6 @@ credentials*.json
 *.jpg
 *.jpeg
 *.png
+
+# 例外：説明用のスクリーンショットだけは許可する（ここ以外に画像を置かないこと）
+!docs/images/*.png
