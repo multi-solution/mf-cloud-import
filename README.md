@@ -97,10 +97,22 @@ AIが読み取り、明細と突き合わせ、マネーフォワード クラ�
 
 ### 1. プラグインを入れる
 
+ターミナルから（**どの環境でも確実に入ります**）：
+
+```bash
+claude plugin marketplace add multi-solution/mf-cloud-import
+claude plugin install mf-cloud-import@mf-cloud-import
+```
+
+Claude Code のチャット欄からでも入ります（対応している環境のみ）：
+
 ```
 /plugin marketplace add multi-solution/mf-cloud-import
 /plugin install mf-cloud-import
 ```
+
+> `/plugin` に「isn't available in this environment」と出る環境があります。
+> その場合はターミナルの方をお使いください。**入ったあとは Claude Code を再起動してください。**
 
 ### 2. MFクラウドのコネクタに接続する
 
