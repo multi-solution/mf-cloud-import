@@ -18,5 +18,14 @@ credentials*.json
 *.jpeg
 *.png
 
-# 例外：説明用のスクリーンショットだけは許可する（ここ以外に画像を置かないこと）
-!docs/images/*.png
+# 例外：ドキュメントに載せる画像だけを、ファイル名で個別に許可する
+# ★ワイルドカードにしないこと。docs/images/ に置いた作業用スクショまで
+#   まとめてコミットされ、公開リポジトリに流出する事故が実際に起きた（2026-08-20）
+!docs/images/install-1-menu.png
+!docs/images/install-2-plugins.png
+!docs/images/install-3-add.png
+!docs/images/install-4-repo.png
+!docs/images/install-5-url.png
+!docs/images/journals.png
+!docs/images/voucher.png
+!docs/images/filename.png
