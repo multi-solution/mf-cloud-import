@@ -18,8 +18,16 @@ credentials*.json
 *.jpeg
 *.png
 
-# ★画像は一切コミットしない（例外を作らない）
-# 2026-08-20、docs/images/ に許可の例外を作っていたところへ作業用スクショが混ざり、
-# 41枚を公開リポジトリへ流出させた。以降、画像はリポジトリに置かない方針とする。
-# ドキュメントで手順を示す場合は、文章で説明する。
-docs/images/
+# 例外：ドキュメントに載せる画像だけを、ファイル名で個別に許可する
+# ★ここをワイルドカード（!docs/images/*.png）にしないこと。
+#   2026-08-20、その書き方をしていたところへ作業用スクショが混ざり、
+#   41枚を公開リポジトリへ流出させた。新しい画像を載せるときは、
+#   必ずファイル名を1行ずつ追記する。
+!docs/images/install-1-menu.png
+!docs/images/install-2-plugins.png
+!docs/images/install-3-add.png
+!docs/images/install-4-repo.png
+!docs/images/install-5-url.png
+!docs/images/journals.png
+!docs/images/voucher.png
+!docs/images/filename.png
