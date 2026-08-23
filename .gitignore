@@ -31,3 +31,6 @@ credentials*.json
 !docs/images/journals.png
 !docs/images/voucher.png
 !docs/images/filename.png
+!docs/images/app-register.png
+!docs/images/terminal-open.png
+!docs/images/oauth-prompt.png
