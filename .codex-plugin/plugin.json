@@ -1,0 +1,27 @@
+{
+  "name": "mf-cloud-import",
+  "version": "0.1.0",
+  "description": "【非公式】マネーフォワード クラウド会計の連携明細と手元の領収書を突合し、勘定科目を判定して記帳、証憑（領収書PDF/画像）を仕訳へ自動添付します。処理済み台帳により同じ領収書の二重計上を構造的に防ぎます。マネーフォワード社の公式製品ではありません。",
+  "author": {
+    "name": "multi-solution",
+    "url": "https://multi-solution.net"
+  },
+  "homepage": "https://github.com/multi-solution/mf-cloud-import",
+  "repository": "https://github.com/multi-solution/mf-cloud-import",
+  "license": "MIT",
+  "keywords": ["マネーフォワード", "記帳", "領収書", "証憑", "仕訳", "経理"],
+  "skills": "./codex/skills/",
+  "interface": {
+    "displayName": "MFクラウド記帳（非公式）",
+    "shortDescription": "領収書を読み取ってMFクラウド会計へ記帳し、証憑を添付します",
+    "longDescription": "領収書・請求書を読み取り、マネーフォワード クラウド会計の連携明細と突き合わせて記帳します。記帳の前に必ず承認を求め、証憑のない経費は記帳しません。処理済み台帳で同じ領収書の二重計上を防ぎます。マネーフォワード社の公式製品ではありません。",
+    "developerName": "multi-solution",
+    "category": "Productivity",
+    "websiteURL": "https://github.com/multi-solution/mf-cloud-import",
+    "defaultPrompt": [
+      "$mf-setup で初期設定をして",
+      "$mf-status でいまの状況を見せて",
+      "$mf-import でこのフォルダの領収書を記帳して"
+    ]
+  }
+}

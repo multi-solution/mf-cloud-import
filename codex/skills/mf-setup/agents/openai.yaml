@@ -1,0 +1,7 @@
+interface:
+  display_name: "MFクラウド記帳：初期設定"
+  short_description: "接続を診断し、過去の仕訳から自分用の勘定科目ルールを作ります"
+  default_prompt: "$mf-setup で初期設定をして"
+
+policy:
+  allow_implicit_invocation: false

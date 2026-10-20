@@ -1,0 +1,3 @@
+interface:
+  display_name: "MFクラウド記帳"
+  short_description: "領収書を読み取ってMFクラウド会計へ記帳し、証憑を仕訳に添付します（承認制）"

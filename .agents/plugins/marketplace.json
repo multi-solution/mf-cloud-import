@@ -1,0 +1,20 @@
+{
+  "name": "mf-cloud-import",
+  "interface": {
+    "displayName": "multi-solution（非公式・MFクラウド記帳）"
+  },
+  "plugins": [
+    {
+      "name": "mf-cloud-import",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
